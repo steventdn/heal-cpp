@@ -7,8 +7,18 @@ function Login() {
 
   // LOGIN LOGIC NEEDED TO BE ADDED HERE!!!
   const handleLogin = () => {
-    console.log('Username:', username);
-    console.log('Password:', password);
+
+    //add login logic
+
+    //clear input fields
+    /*  if username already exists:
+            setPassword('');
+        else:
+            setUsername('');
+            setPassword('');
+    */
+    setUsername('');
+    setPassword('');
   };
 
   return (
@@ -32,7 +42,7 @@ function Login() {
         Login
       </button>
       <h5>Don't have an account?</h5>
-
+        <h6><a href = "https://www.youtube.com/" target="_blank">REGISTER NOW</a></h6>
           {/*INSERT REGISTER NOW LINK*/}
     </div>
   );
