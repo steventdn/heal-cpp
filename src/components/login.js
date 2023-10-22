@@ -3,16 +3,6 @@ import './login.css'; // Import the CSS file
 import Axios from 'axios'; //used to send and receive requests from BE
 
 function Login() {
-  const [data, setData] = useState("");
-  const getData = async()=>{
-    const response = await Axios.get("http://localhost:5000/getData");
-    setData(response.data);
-  }
-
-  useEffect(()=>{
-    getData()
-  },[]);
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -32,9 +22,20 @@ function Login() {
     setPassword('');
   };
 
+  //Backend Stuff
+  const [data, setData] = useState("");
+  const getData = async()=>{
+    const response = await Axios.get("http://localhost:5000/getData");
+    setData(response.data);
+  }
+
+  useEffect(()=>{
+    getData()
+  },[]);
+
   return (
     <div className="login-container">
-      <h2>Welcome to HEAL{data}</h2>
+      <h2>Welcome to HEAL</h2>
       <input
         type="text"
         placeholder="Username"
@@ -52,6 +53,7 @@ function Login() {
       <button className="login-button" onClick={handleLogin}>
         Login
       </button>
+        <p>Data from backend: {data}</p>
       <h5>Don't have an account?</h5>
         <h6><a href = "https://www.youtube.com/" target="_blank">REGISTER NOW</a></h6>
           {/*INSERT REGISTER NOW LINK*/}
