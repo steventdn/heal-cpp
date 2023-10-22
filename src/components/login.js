@@ -1,7 +1,18 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react'
 import './login.css'; // Import the CSS file
+import Axios from 'axios'; //used to send and receive requests from BE
 
 function Login() {
+  const [data, setData] = useState("");
+  const getData = async()=>{
+    const response = await Axios.get("http://localhost:5000/getData");
+    setData(response.data);
+  }
+
+  useEffect(()=>{
+    getData()
+  },[]);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -23,7 +34,7 @@ function Login() {
 
   return (
     <div className="login-container">
-      <h2>Welcome to HEAL</h2>
+      <h2>Welcome to HEAL{data}</h2>
       <input
         type="text"
         placeholder="Username"
