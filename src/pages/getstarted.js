@@ -9,7 +9,7 @@ function GetStarted(){
         <div>
           <h1>WELCOME TO HEAL!</h1>
             <div className='button-spacing'>
-            <Link to="/login">
+            <Link to="/registration">
               <button className="button">Get Started!</button>
             </Link>
             <Link to="/login">
