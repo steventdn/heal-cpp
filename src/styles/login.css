@@ -1,53 +1,53 @@
 /* login.css */
 body {
-          font-family: Arial, sans-serif;
-          background-image: url("/public/login-background-photo.jpeg");
-          background-size: 100%;
-          margin: 0;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-        }
-        
-        .login-container {
-          background-color: #ffffffe5;
-          border-radius: 5px;
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          padding: 20px;
-          width: 300px;
-          height: 275px;
-          text-align: center;
-        }
-        
-        .login-container h2 {
-          margin-bottom: 20px;
-          color: #333;
-        }
-        .login-container h5 {
-          margin-bottom: -15px;
-        }
-        
-        .login-input {
-          width: 90%;
-          padding: 10px;
-          margin-bottom: 15px;
-          border: 1px solid #ccc;
-          border-radius: 3px;
-        }
-        
-        .login-button {
-          width: 50%;
-          padding: 10px;
-          background-color: #0aa74b;
-          color: #fff;
-          border: none;
-          border-radius: 3px;
-          cursor: pointer; 
-          margin-bottom: 20px;
-        }
-        
-        .login-button:hover {
-          background-color: #097e2c;
-        }
+  font-family: Arial, sans-serif;
+  background-image: url("/public/login-background-photo.jpeg");
+  background-size: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  background-color: #ffffffe5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  height: 285px;
+  text-align: center;
+}
+
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+.login-container h5 {
+  margin-bottom: -15px;
+}
+
+.login-input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-button {
+  width: 50%;
+  padding: 10px;
+  background-color: #0aa74b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer; 
+  margin-bottom: 20px;
+}
+
+.login-button:hover {
+  background-color: #097e2c;
+}

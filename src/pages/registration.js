@@ -55,10 +55,12 @@ function Registration() {
         value={confirmedPassword}
         onChange={(e) => setConfirmedPassword(e.target.value)}
       />
+
       <button className="register-button">Register</button>
+      
       <h5>Already have an account?</h5>
       <Link to="/login">  {/* Use React Router's Link component */}
-          <h6>Login</h6>
+          <h5>Login</h5>
         </Link>
     </div>
   );

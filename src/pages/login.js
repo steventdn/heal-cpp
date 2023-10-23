@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/login.css'; // Import the CSS file
+import '../styles/login.css'; 
 
 
 function Login() {
@@ -45,7 +45,7 @@ function Login() {
       </button>
       <h5>Don't have an account?</h5>
       <Link to="/registration">  {/* Use React Router's Link component */}
-          <h6>Register Now</h6>
+          <h5>Register Now</h5>
         </Link>
     </div>
   );

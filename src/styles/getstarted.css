@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("/public/login-background-photo.jpeg");
+    background-size: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+h1{
+    text-align: center;
+}
+.button-spacing {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.button {
+    padding: 10px;
+    background-color: #0aa74b;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer; 
+    margin: 20px;
+    width: 200px;
+    height: 50px;
+}
+
+.button:hover {
+    background-color: #097e2c;
+}
