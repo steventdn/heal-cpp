@@ -42,54 +42,59 @@ function Registration() {
     }
   }
   return (
-    <div className='registration-container'>
-      <h2>Register Now!</h2>
-      <form>
-        <div className="name-inputs">
+    <div className='default-background'>
+      <div className='welcome-text'>
+              <a href="/">WELCOME TO HEAL</a>
+      </div>
+      <div className='registration-container'>
+        <h2>Register Now!</h2>
+        <form>
+          <div className="name-inputs">
+            <input
+              type="text"
+              placeholder="First Name"
+              className="register-input-small"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="register-input-small"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+          </div>
           <input
-            type="text"
-            placeholder="First Name"
-            className="register-input-small"
-            value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            type="email"
+            placeholder="Email Address"
+            className="register-input"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <input
-            type="text"
-            placeholder="Last Name"
-            className="register-input-small"
-            value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            type="password"
+            placeholder="Password"
+            className="register-input"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
-        </div>
-        <input
-          type="email"
-          placeholder="Email Address"
-          className="register-input"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="register-input"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="register-input"
-          value={confirmedPassword}
-          onChange={(e) => setConfirmedPassword(e.target.value)}
-        />
-      <button className="register-button" onClick={submit}>
-        Register
-      </button>
-      </form>
-      <h5>Already have an account?</h5>
-      <Link to="/login">  {/* Use React Router's Link component */}
-          <h5>Login</h5>
-        </Link>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            className="register-input"
+            value={confirmedPassword}
+            onChange={(e) => setConfirmedPassword(e.target.value)}
+          />
+        <button className="register-button" onClick={submit}>
+          Register
+        </button>
+        </form>
+        <h5>Already have an account?</h5>
+        <Link to="/login">  {/* Use React Router's Link component */}
+            <h5>Login</h5>
+          </Link>
+      </div>
     </div>
   );
 }

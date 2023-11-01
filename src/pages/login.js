@@ -35,6 +35,10 @@ function Login() {
   }
 
   return (
+    <div className="default-background">
+      <div className='welcome-text'>
+              <a href="/">WELCOME TO HEAL</a>
+      </div>
     <div className="login-container">
       <h2>Login</h2>
       <form action = "POST">
@@ -61,6 +65,7 @@ function Login() {
       <Link to="/registration">  {/* Use React Router's Link component */}
           <h5>Register Now</h5>
         </Link>
+    </div>
     </div>
   );
 }

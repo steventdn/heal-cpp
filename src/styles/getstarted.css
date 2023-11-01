@@ -1,17 +1,38 @@
-body {
+.default-background {
+    background-image: url("../../public/login-background-photo.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Optional for a fixed background */
     font-family: Arial, sans-serif;
-    background-image: url("/public/login-background-photo.jpeg");
-    background-size: 100%;
-    margin: 0;
-    padding: 0;
+    text-align: center;
+    height: 100vh; /* Set the height to cover the viewport */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+  }
+  
+  
+.welcome-text{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.392);
+    height: 70px; /* Adjust the height as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: #333; /* Adjust the text color as needed */
 }
-h1{
-    text-align: center;
-}
+
+.welcome-text a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 50px;
+  }
+  
 .button-spacing {
     display: flex;
     justify-content: space-between;
