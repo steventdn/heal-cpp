@@ -1,0 +1,96 @@
+.question-container{
+  background-color: #ffffffe5;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 300px;
+  height: 475px;
+  text-align: center;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.question-container h1{
+  margin-bottom: -12px;
+  margin-top: -10px;
+}
+.question-container h3{
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+.question-container h4{
+  font-size: small;
+  color: gray;
+}
+.line {
+  border-top: 1px solid #000; /* 1px solid black line */
+  margin-bottom: 5px;
+}
+
+.question-container label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Style the select element */
+.question-container select {
+  width: 100px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+/* Style the selected option */
+.question-container select option:checked {
+  background-color: #f0f0f0; /* Background color for the selected option */
+}
+
+.input-box {
+  width: 35px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 8px;
+ 
+}
+
+.input-box-large {
+  width: 85px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.space-between{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 80px;
+  margin-right: 80px;
+
+}
+
+.question-container span{
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.submit-button {
+  width: 50%;
+  padding: 10px;
+  background-color: #0aa74b;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer; 
+}
+
+.submit-button:hover {
+  background-color: #097e2c;
+}
+

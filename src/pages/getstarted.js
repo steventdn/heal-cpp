@@ -6,8 +6,10 @@ function GetStarted(){
 
 
     return(
-        <div>
-          <h1>WELCOME TO HEAL!</h1>
+        <div className='default-background'>
+            <div className='welcome-text'>
+              <a href="/">WELCOME TO HEAL</a>
+            </div>
             <div className='button-spacing'>
             <Link to="/registration">
               <button className="button">Get Started!</button>

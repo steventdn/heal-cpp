@@ -1,0 +1,18 @@
+.navbar {
+  background-color: #0aa74b;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 25px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+}
+
+.navbar a:hover {
+  text-decoration: solid;
+}
+        
