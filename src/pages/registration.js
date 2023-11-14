@@ -20,9 +20,12 @@ function Registration() {
     e.preventDefault();
 
     try{
-
         await axios.post("http://localhost:5000/registration",{
-          email, password
+          firstName,
+          lastName,
+          email,
+          password,
+          confirmedPassword,
         })
         .then(res=>{
           if(res.data==="exist"){
