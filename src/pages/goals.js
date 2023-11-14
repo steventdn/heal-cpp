@@ -1,21 +1,22 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router";
+import { Link, useLocation } from "react-router-dom";
 import "../styles/navbar.css";
 
-function Goals(){
+function Goals() {
+    const location = useLocation();
+    const userId = location.state ? location.state.id : null;
 
-    return(
+    return (
         <div className="homepage">
             <div className="navbar">
-                <a href="/home">Home</a>
-                <a href="/goals">Goals</a>
-                <a href="/leaderboard">Leaderboard</a>
-                <a href="/profile">Profile</a>
+                <Link to="/home" state={{ id: userId }}>Home</Link>
+                <Link to="/goals" state={{ id: userId }}>Goals</Link>
+                <Link to="/leaderboard" state={{ id: userId }}>Leaderboard</Link>
+                <Link to="/profile" state={{ id: userId }}>Profile</Link>
             </div>
-            <h1>Hello and welcome to the Goals page </h1>
+            <h1>Hello {userId} and welcome to the Goals page</h1>
         </div>
-        
-    )
+    );
 }
 
 export default Goals;

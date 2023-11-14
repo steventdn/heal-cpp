@@ -4,7 +4,7 @@ import '../styles/getstarted.css';
 
 function GetStarted(){
 
-
+    
     return(
         <div className='default-background'>
             <div className='welcome-text'>
