@@ -7,7 +7,7 @@ import Home from './pages/home.js';
 import Goals from './pages/goals';
 import Leaderboard from './pages/leaderboard';
 import Profile from './pages/profile';
-import Questionaire from './pages/questionaire.js';
+import Questionaire from './pages/questionnaire.js';
 
 
 
@@ -18,7 +18,7 @@ function App() {
         <Route path = "/" element={<GetStarted/>}></Route>
         <Route path = "/login" element={<Login/>}></Route>
         <Route path = "/registration" element={<Registration/>}></Route>
-        <Route path = "/questionaire" element={<Questionaire/>}></Route>
+        <Route path = "/questionnaire" element={<Questionaire/>}></Route>
         <Route path = "/home" element={<Home/>}></Route>
         <Route path = "/goals" element={<Goals/>}></Route>
         <Route path = "/leaderboard" element={<Leaderboard/>}></Route>

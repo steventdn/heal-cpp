@@ -15,39 +15,38 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
 
-  
-  async function submit(e){
+  async function submit(e) {
     e.preventDefault();
-
-    try{
-        await axios.post("http://localhost:5000/registration",{
-          firstName,
-          lastName,
-          email,
-          password,
-          confirmedPassword,
-        })
-        .then(res=>{
-          if(res.data==="exist"){
-              alert("User already exists")
-          }else if(res.data==="notexist"){
-              history("/home", {state:{id:email}})
-        }
-        })
-        .catch(e=>{
-          alert("wrong details")
-          console.log(e);
-        })
-
-    }
-    catch(e){
-        console.log(e)
+  
+    try {
+      const res = await axios.post("http://localhost:5000/registration", {
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmedPassword,
+      });
+  
+      if (res.data === "exist") {
+        alert("User already exists");
+        // Redirect to the login page or any other page as needed
+        history("/login");
+      } else if (res.data.status === "notexist" && res.data.userId) {
+        // Redirect to the questionnaire page with the userId
+        history("/questionnaire", { state: { id: res.data.userId } });
+      } else {
+        alert("Error during registration");
+      }
+    } catch (e) {
+      console.log(e);
+      alert("Something went wrong. Please try again.");
     }
   }
+
   return (
     <div className='default-background'>
       <div className='welcome-text'>
-              <a href="/">WELCOME TO HEAL</a>
+        <a href="/">WELCOME TO HEAL</a>
       </div>
       <div className='registration-container'>
         <h2>Register Now!</h2>
@@ -89,14 +88,14 @@ function Registration() {
             value={confirmedPassword}
             onChange={(e) => setConfirmedPassword(e.target.value)}
           />
-        <button className="register-button" onClick={submit}>
-          Register
-        </button>
+          <button className="register-button" onClick={submit}>
+            Register
+          </button>
         </form>
         <h5>Already have an account?</h5>
-        <Link to="/login">  {/* Use React Router's Link component */}
-            <h5>Login</h5>
-          </Link>
+        <Link to="/login">  
+          <h5>Login</h5>
+        </Link>
       </div>
     </div>
   );
