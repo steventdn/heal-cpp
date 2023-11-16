@@ -13,16 +13,18 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const check = await User.findOne({ email: email });
-    if (check) {
-      res.json("exist");
+    const user = await User.findOne({ email: email });
+
+    if (user) {
+      res.json({ status: "exist", userId: user._id });
     } else {
-      res.json("notexist");
+      res.json({ status: "notexist" });
     }
   } catch (e) {
-    res.json("notexist");
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 
 //REGISTRATION DB SAVING
 app.post("/registration", async (req, res) => {

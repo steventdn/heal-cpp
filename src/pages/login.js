@@ -9,30 +9,26 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  async function submit(e){
+  async function submit(e) {
     e.preventDefault();
-
-    try{
-        await axios.post("http://localhost:5000/login",{
-          email, password
-        })
-        .then(res=>{
-          if(res.data==="exist"){
-              history("/home",{state: {id:email}})
-          }else if(res.data==="notexist"){
-              alert("User has not signed up")
-        }
-        })
-        .catch(e=>{
-          alert("wrong details")
-          console.log(e);
-        })
-
-    }
-    catch(e){
-        console.log(e)
+  
+    try {
+      const res = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+      });
+  
+      if (res.data.status === "exist" && res.data.userId) {
+        history("/home", { state: { id: res.data.userId } });
+      } else if (res.data.status === "notexist") {
+        alert("User has not signed up");
+      }
+    } catch (e) {
+      alert("Wrong details or something went wrong");
+      console.log(e);
     }
   }
+  
 
   return (
     <div className="default-background">
