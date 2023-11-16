@@ -24,7 +24,12 @@ const userSchema = new mongoose.Schema({
   password: {
     type: String,
     required: true
-  }
+  },
+  selectedGender: String,
+  heightFt: String,
+  heightIn: String,
+  weight: String,
+  birthday: String,
 });
 
 const User = mongoose.model("User", userSchema);
