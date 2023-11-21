@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("./mongo"); // Import the User model
 const cors = require("cors");
+const connectDB = require("./atlas"); 
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
