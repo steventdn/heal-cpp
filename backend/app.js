@@ -5,6 +5,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+const path = require('path')
 
 app.get("/", cors(), (req, res) => {});
 
@@ -103,6 +104,11 @@ app.get("/user/:userId", async (req, res) => {
   }
 });
 
+//Production Script
+app.use(express.static("/build"));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
 
 app.listen(5000, () => {
   console.log("port connected");

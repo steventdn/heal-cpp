@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/questionaire.css';
 import axios from 'axios';
+import API_BASE_URL from '../baseUrl';
 
 function Questionnaire() {
   const location = useLocation();
@@ -22,7 +23,7 @@ function Questionnaire() {
 
     try {
       // Send questionnaire data to the server
-      const res = await axios.post('http://localhost:5000/questionnaire', {
+      const res = await axios.post(`${API_BASE_URL}/questionnaire`, {
         userId,
         selectedGender,
         heightFt,

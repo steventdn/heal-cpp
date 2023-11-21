@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../styles/navbar.css";
 import "../globals.css"
+import API_BASE_URL from "../baseUrl";
 
 function Profile() {
   const location = useLocation();
@@ -13,7 +14,7 @@ function Profile() {
     // Fetch user details based on userId
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/user/${userId}`);
+        const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
         setUserDetails(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);

@@ -5,6 +5,7 @@ import axios from "axios";
 import "../styles/navbar.css";
 import "../styles/goals.css";
 import "../globals.css"
+import API_BASE_URL from "../baseUrl";
 
 function Goals() {
   const location = useLocation();
@@ -22,7 +23,7 @@ function Goals() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/user/${userId}`);
+        const response = await axios.get(`${API_BASE_URL}/user/${userId}`);
         const { firstName, lastName } = response.data;
         setUserName(`${firstName} ${lastName}`);
       } catch (error) {

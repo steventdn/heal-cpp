@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/registration.css'; // Import the CSS file
 import axios from 'axios';
+import API_BASE_URL from '../baseUrl';
 
 function Registration() {
   const history = useNavigate();
@@ -19,7 +20,7 @@ function Registration() {
     e.preventDefault();
   
     try {
-      const res = await axios.post("http://localhost:5000/registration", {
+      const res = await axios.post(`${API_BASE_URL}/registration`, {
         firstName,
         lastName,
         email,
