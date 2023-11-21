@@ -50,7 +50,7 @@ function Goals() {
     setExerciseList(updatedExercises);
   };
 
-  const submitExercises = () => {
+  const addWorkout = () => {
     const workout = {
       title: workoutTitle,
       exercises: [...exerciseList],
@@ -130,7 +130,7 @@ function Goals() {
           </div>
         </div>
         <button className="close-btn" onClick={closeAndClear}>Discard</button>
-        <button onClick={submitExercises}>Submit Exercises</button>
+        <button onClick={addWorkout}>Submit Exercises</button>
       </Modal>
 
       <div>
