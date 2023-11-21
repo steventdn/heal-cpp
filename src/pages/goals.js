@@ -35,6 +35,7 @@ function Goals() {
     }
   }, [userId]);
 
+  // add individual exercise in pop up box
   const addExercise = () => {
     const exercise = `${exerciseName}: ${sets} x ${reps} | ${weight} lb.`;
     setExerciseList([...exerciseList, exercise]);
@@ -44,12 +45,14 @@ function Goals() {
     setWeight("");
   };
 
+  // remove individual exercise in pop up box
   const removeExercise = (index) => {
     const updatedExercises = [...exerciseList];
     updatedExercises.splice(index, 1);
     setExerciseList(updatedExercises);
   };
 
+  // add workout box after hitting submit
   const addWorkout = () => {
     const workout = {
       title: workoutTitle,
@@ -66,6 +69,7 @@ function Goals() {
     setVisible(false);
   };
 
+  //clear all entries in pop up box
   const closeAndClear = () => {
     setExerciseName("");
     setSets("");
@@ -76,6 +80,7 @@ function Goals() {
     setVisible(false);
   };
 
+  // remove workout box after creating workout
   const removeWorkout = (index) => {
     const updatedWorkouts = [...workouts];
     updatedWorkouts.splice(index, 1);
