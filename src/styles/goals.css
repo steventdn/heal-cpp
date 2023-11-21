@@ -1,0 +1,206 @@
+.Goals-Page {
+          background-image: url("../../public/login-background-photo-edited.jpeg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed; /* Optional for a fixed background */
+          height: 100vh; /* Set the height to cover the viewport */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+.big-text {
+          position: absolute;
+          color: #cfcdcd;
+          text-decoration: none;
+          font-size: 30px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+.small-text {
+          position: absolute;
+          color: #cfcdcd;
+          top: 145px;
+          text-decoration: none;
+          font-size: 16px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+
+.Goals-Page-button {
+          top: 175px;
+          position:absolute;
+        }
+        
+.Goals-Page-button:hover {
+          background-color: #09521f;
+        }
+.Modal {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #1a1a1a;
+          padding: 20px;
+          border-radius: 10px;
+          max-width: 500px;
+          width: 100%;
+          height: 95%;
+          text-align: center;
+}
+
+
+/* Add this to your existing CSS file or adjust accordingly */
+
+.Modal label {
+  display: block;
+  text-align: left;
+  margin-top: 10px; /* Adjust as needed for spacing */
+  color: #cfcdcd;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.Modal h1{
+          position: relative;
+          color: #cfcdcd;
+          text-decoration: none;
+          font-size: 30px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-weight: 400;
+          margin-bottom: 5px;
+}
+
+
+.Modal input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+/* Additional styling for Delete button */
+.delete-button {
+  width: 120px;
+  height: 30px;
+  padding: 10px;
+  background-color: #097e2c;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Adjustments for Exercise List */
+.Modal .exercise-list {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.Modal .exercise-list div {
+  background-color: #2a2a2a;
+  color: #fff;
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Modal .exercise-list p {
+  margin: 0;
+}
+
+/* Adjustments for Close and Submit buttons */
+.Modal button {
+  width: 140px;
+  height: 30px;
+  padding: 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+  
+}
+
+/* Close button styling */
+.close-btn {
+  background-color: #ff4646;
+  color: #fff;
+}
+.close-btn:hover{
+  background-color: #cb2b2b;
+}
+/* Submit Exercises button styling */
+.Modal button.submit-btn {
+  background-color: #09521f;
+  color: #fff;
+}
+
+        
+/* Add this to your existing CSS file or adjust accordingly */
+
+.workouts-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+  max-height: 300px; /* Adjust the max height as needed */
+  overflow-y: auto;
+}
+
+.workout-item {
+  width: 300px;
+  margin: 10px;
+  padding: 10px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content vertically */
+}
+
+.workout-item h3 {
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 10px; /* Add margin for spacing */
+}
+
+.workout-item ul {
+  list-style-type: none;
+  padding: 0;
+  flex-grow: 1; /* Expand and take remaining space */
+}
+
+.workout-item li {
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Hide the scrollbar track, but still allow scrolling */
+.workouts-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.workouts-list::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.workouts-list::-webkit-scrollbar-thumb {
+  background-color: #4CAF50;
+  border-radius: 10px;
+}

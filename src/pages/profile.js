@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import axios from "axios";
 import "../styles/navbar.css";
+import "../globals.css"
 
 function Profile() {
   const location = useLocation();
@@ -25,12 +26,12 @@ function Profile() {
   }, [userId]);
 
   return (
-    <div className="homepage">
+    <div className="default-background">
+      
       <div className="navbar">
-        <Link to="/home" state={{ id: userId }}>Home</Link>
-        <Link to="/goals" state={{ id: userId }}>Goals</Link>
-        <Link to="/leaderboard" state={{ id: userId }}>Leaderboard</Link>
-        <Link to="/profile" state={{ id: userId }}>Profile</Link>
+        <Link to="/home" state={{ id: userId }}>HOME</Link>
+        <Link to="/goals" state={{ id: userId }}>GOALS</Link>
+        <Link to="/profile" state={{ id: userId }}>PROFILE</Link>
       </div>
       {userDetails && (
         <div>

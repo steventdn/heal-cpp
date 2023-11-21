@@ -33,7 +33,7 @@ function Login() {
   return (
     <div className="default-background">
       <div className='welcome-text'>
-              <a href="/">WELCOME TO HEAL</a>
+              <a href="/">HEAL</a>
       </div>
     <div className="login-container">
       <h2>Login</h2>

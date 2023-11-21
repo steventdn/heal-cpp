@@ -48,6 +48,9 @@ function Questionnaire() {
 
   return (
     <div className='default-background'>
+      <div className='welcome-text'>
+              <a href="/">HEAL</a>
+      </div>
       <div className='question-container'>
         <h1>Almost there!</h1>
         <h4>We just want to know a little more about you!</h4>
@@ -55,7 +58,7 @@ function Questionnaire() {
         <div className='line'></div>
 
         <div>
-          <label htmlFor='gender'>Select Gender:</label>
+          <label htmlFor='gender'>Gender</label>
           <select id='gender' name='gender' value={selectedGender} onChange={handleGenderChange}>
             <option value=''>Select</option>
             <option value='male'>Male</option>
@@ -63,7 +66,7 @@ function Questionnaire() {
           </select>
         </div>
 
-        <h3>Height:</h3>
+        <h3>Height</h3>
         <div className='space-between'>
           <form>
             <input
@@ -86,7 +89,7 @@ function Questionnaire() {
           </form>
         </div>
 
-        <h3>Weight:</h3>
+        <h3>Weight</h3>
         <div>
           <form>
             <input
@@ -99,7 +102,7 @@ function Questionnaire() {
           </form>
         </div>
 
-        <h3>Date of Birth:</h3>
+        <h3>Date of Birth</h3>
         <div>
           <form>
             <input
