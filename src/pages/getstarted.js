@@ -8,16 +8,16 @@ function GetStarted(){
     return(
         <div className='default-background'>
             <div className='welcome-text'>
-              <a href="/">WELCOME TO HEAL</a>
+              <a href="/">HEAL</a>
             </div>
-            <div className='button-spacing'>
+            <div className='big-text'>THE BEST HEALTH AND FITNESS TRACKER</div>
+            <div className='small-text'>POWERED BY AI TECHNOLOGY</div>
             <Link to="/registration">
-              <button className="button">Get Started!</button>
+              <button className="button">Register</button>
             </Link>
             <Link to="/login">
               <button className="button">Login</button>
             </Link>
-            </div>
         </div>
         );
 }

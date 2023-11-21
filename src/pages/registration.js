@@ -46,7 +46,7 @@ function Registration() {
   return (
     <div className='default-background'>
       <div className='welcome-text'>
-        <a href="/">WELCOME TO HEAL</a>
+        <a href="/">HEAL</a>
       </div>
       <div className='registration-container'>
         <h2>Register Now!</h2>

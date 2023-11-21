@@ -1,0 +1,39 @@
+.default-background {
+          background-color: #131313;
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-attachment: fixed; /* Optional for a fixed background */
+          height: 100vh; /* Set the height to cover the viewport */
+        }
+
+h1 {
+          position: relative;
+          color: #cfcdcd;
+          text-decoration: none;
+          font-size: 30px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-weight: 400;
+}
+
+p {
+          color: #cfcdcd;
+          text-decoration: none;
+          font-size: 16px;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+          width: 200px;
+          padding: 10px;
+          background-color: #097e2c;
+          color: #fff;
+          border: none;
+          border-radius: 100px;
+          cursor: pointer;
+          margin-bottom: 10px;
+
+        }
+        
+button:hover {
+          background-color: #09521f;
+        }

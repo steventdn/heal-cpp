@@ -5,7 +5,6 @@ import Registration from './pages/registration.js';
 import GetStarted from './pages/getstarted.js';
 import Home from './pages/home.js';
 import Goals from './pages/goals';
-import Leaderboard from './pages/leaderboard';
 import Profile from './pages/profile';
 import Questionaire from './pages/questionnaire.js';
 
@@ -21,7 +20,6 @@ function App() {
         <Route path = "/questionnaire" element={<Questionaire/>}></Route>
         <Route path = "/home" element={<Home/>}></Route>
         <Route path = "/goals" element={<Goals/>}></Route>
-        <Route path = "/leaderboard" element={<Leaderboard/>}></Route>
         <Route path = "/profile" element={<Profile/>}></Route>
       </Routes>
     </div>
