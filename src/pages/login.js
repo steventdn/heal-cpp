@@ -19,7 +19,8 @@ function Login() {
       });
   
       if (res.data.status === "exist" && res.data.userId) {
-        history("/home", { state: { id: res.data.userId } });
+        // Use navigate instead of history
+        history(`/home`, { state: { id: res.data.userId } });
       } else if (res.data.status === "notexist") {
         alert("User has not signed up");
       }
