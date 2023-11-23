@@ -8,6 +8,18 @@ mongoose.connect("mongodb+srv://stn:cpphealpassword@heal-cpp-cluster.dnlkylp.mon
     console.log('failed');
   });
 
+const exerciseSchema = new mongoose.Schema({
+  name: String,
+  sets: String,
+  reps: String,
+  weight: String,
+});
+
+const workoutSchema = new mongoose.Schema({
+  title: String,
+  exercises: [exerciseSchema],
+});
+
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -30,18 +42,7 @@ const userSchema = new mongoose.Schema({
   heightIn: String,
   weight: String,
   birthday: String,
-});
-
-const exerciseSchema = new mongoose.Schema({
-  name: String,
-  sets: String,
-  reps: String,
-  weight: String,
-});
-
-const workoutSchema = new mongoose.Schema({
-  title: String,
-  exercises: [exerciseSchema],
+  workouts: [workoutSchema],  // Include a reference to Workout schema
 });
 
 const User = mongoose.model("User", userSchema);

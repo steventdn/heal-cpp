@@ -106,7 +106,7 @@ app.get("/user/:userId", async (req, res) => {
 // New route to handle workout data
 app.post("/workouts", async (req, res) => {
   const { userId, workouts } = req.body;
-
+  console.log("Received workout data:", workouts); // Log the received data
   try {
     const user = await User.findById(userId);
     if (user) {
@@ -123,7 +123,6 @@ app.post("/workouts", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
 
 
 app.listen(5000, () => {

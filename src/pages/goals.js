@@ -1,3 +1,4 @@
+// Import statements (please make sure to include all necessary imports)
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Modal from 'react-modal';
@@ -22,6 +23,7 @@ function Goals() {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
+    Modal.setAppElement('body'); // Set the app element for the modal
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${apiUrl}/user/${userId}`);
@@ -40,7 +42,7 @@ function Goals() {
   // add individual exercise in pop up box
   const addExercise = () => {
     const exercise = `${exerciseName}: ${sets} x ${reps} | ${weight} lb.`;
-    setExerciseList([...exerciseList, exercise]);
+    setExerciseList(prevList => [...prevList, exercise]);
     setExerciseName("");
     setSets("");
     setReps("");
@@ -55,21 +57,36 @@ function Goals() {
   };
 
   // add workout box after hitting submit
-  const addWorkout = () => {
+  const addWorkout = async () => {
     const workout = {
       title: workoutTitle,
-      exercises: [...exerciseList],
+      exercises: [...exerciseList.map((exercise) => ({ name: exercise }))],
     };
-
-    setWorkouts([...workouts, workout]);
-    setExerciseName("");
-    setSets("");
-    setReps("");
-    setWeight("");
-    setWorkoutTitle("");
-    setExerciseList([]);
-    setVisible(false);
-  };
+    console.log("Workout to be saved:", workout);
+  
+    try {
+      const res = await axios.post(`${apiUrl}/workouts`, {
+        userId,
+        workouts: [workout, ...workouts],
+      });
+      console.log("Server response:", res.data); // Log the server response
+  
+      if (res.data === "success") {
+        setExerciseName("");
+        setSets("");
+        setReps("");
+        setWeight("");
+        setWorkoutTitle("");
+        setExerciseList([]);
+        setVisible(false);
+      } else {
+        alert("Failed to submit workout data. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting workout data:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };  
 
   //clear all entries in pop up box
   const closeAndClear = () => {
@@ -83,10 +100,27 @@ function Goals() {
   };
 
   // remove workout box after creating workout
-  const removeWorkout = (index) => {
+  const removeWorkout = async (index) => {
     const updatedWorkouts = [...workouts];
     updatedWorkouts.splice(index, 1);
-    setWorkouts(updatedWorkouts);
+
+    try {
+      // Send updated workout data to the server
+      const res = await axios.post(`${apiUrl}/workouts`, {
+        userId,
+        workouts: updatedWorkouts,
+      });
+
+      // Handle the server response accordingly
+      if (res.data === "success") {
+        setWorkouts(updatedWorkouts);
+      } else {
+        alert("Failed to remove workout. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error removing workout:", error);
+      alert("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -147,7 +181,7 @@ function Goals() {
               <h3>{workout.title}</h3>
               <ul>
                 {workout.exercises.map((exercise, exIndex) => (
-                  <li key={exIndex}>{exercise}</li>
+                  <li key={exIndex}>{exercise.name}</li>
                 ))}
               </ul>
               <button className="delete-button" onClick={() => removeWorkout(index)}>
