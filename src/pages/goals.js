@@ -6,6 +6,8 @@ import "../styles/navbar.css";
 import "../styles/goals.css";
 import "../globals.css"
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function Goals() {
   const location = useLocation();
   const userId = location.state ? location.state.id : null;
@@ -22,7 +24,7 @@ function Goals() {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/user/${userId}`);
+        const response = await axios.get(`${apiUrl}/user/${userId}`);
         const { firstName, lastName } = response.data;
         setUserName(`${firstName} ${lastName}`);
       } catch (error) {

@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css'; 
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Login() {
   const history = useNavigate();
@@ -13,7 +14,7 @@ function Login() {
     e.preventDefault();
   
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post(`${apiUrl}/login`, {
         email,
         password,
       });

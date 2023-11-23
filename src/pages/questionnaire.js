@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import '../styles/questionaire.css';
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function Questionnaire() {
   const location = useLocation();
   const userId = location.state ? location.state.id : null;
@@ -19,10 +21,10 @@ function Questionnaire() {
 
   const submitQuestionnaire = async (e) => {
     e.preventDefault();
-
+  
     try {
       // Send questionnaire data to the server
-      const res = await axios.post('http://localhost:5000/questionnaire', {
+      const res = await axios.post(`${apiUrl}/questionnaire`, {
         userId,
         selectedGender,
         heightFt,
@@ -30,7 +32,7 @@ function Questionnaire() {
         weight,
         birthday,
       });
-
+  
       // Handle the server response accordingly
       if (res.data === 'success') {
         // Redirect the user to the next page (modify as needed)
@@ -45,6 +47,7 @@ function Questionnaire() {
       alert('Something went wrong. Please try again.');
     }
   };
+  
 
   return (
     <div className='default-background'>
