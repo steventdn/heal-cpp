@@ -32,6 +32,18 @@ const userSchema = new mongoose.Schema({
   birthday: String,
 });
 
+const exerciseSchema = new mongoose.Schema({
+  name: String,
+  sets: String,
+  reps: String,
+  weight: String,
+});
+
+const workoutSchema = new mongoose.Schema({
+  title: String,
+  exercises: [exerciseSchema],
+});
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

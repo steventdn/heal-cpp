@@ -103,6 +103,28 @@ app.get("/user/:userId", async (req, res) => {
   }
 });
 
+// New route to handle workout data
+app.post("/workouts", async (req, res) => {
+  const { userId, workouts } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+    if (user) {
+      // Update the user's workout data
+      user.workouts = workouts;
+
+      await user.save();
+      res.json("success");
+    } else {
+      res.status(404).json({ error: "User not found" });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+
 
 app.listen(5000, () => {
   console.log("port connected");
