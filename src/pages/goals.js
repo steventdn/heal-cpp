@@ -27,8 +27,9 @@ function Goals() {
     const fetchUserData = async () => {
       try {
         const response = await axios.get(`${apiUrl}/user/${userId}`);
-        const { firstName, lastName } = response.data;
+        const { firstName, lastName, workouts } = response.data;
         setUserName(`${firstName} ${lastName}`);
+        setWorkouts(workouts); // Set the workouts state
       } catch (error) {
         console.error("Error fetching user data:", error);
       }
@@ -62,16 +63,18 @@ function Goals() {
       title: workoutTitle,
       exercises: [...exerciseList.map((exercise) => ({ name: exercise }))],
     };
-    console.log("Workout to be saved:", workout);
-  
+
     try {
       const res = await axios.post(`${apiUrl}/workouts`, {
         userId,
         workouts: [workout, ...workouts],
       });
-      console.log("Server response:", res.data); // Log the server response
-  
-      if (res.data === "success") {
+
+      if (res.data.status === "success") {
+        // Update state using the previous state
+        setWorkouts(prevWorkouts => [workout, ...prevWorkouts]);
+
+        // Clear form fields and close modal
         setExerciseName("");
         setSets("");
         setReps("");
@@ -86,8 +89,8 @@ function Goals() {
       console.error("Error submitting workout data:", error);
       alert("Something went wrong. Please try again.");
     }
-  };  
-
+  };
+  
   //clear all entries in pop up box
   const closeAndClear = () => {
     setExerciseName("");

@@ -83,7 +83,7 @@ app.get("/user/:userId", async (req, res) => {
   try {
     const user = await User.findById(userId);
     if (user) {
-      // Return user details
+      // Return user details including workouts
       res.json({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -93,6 +93,7 @@ app.get("/user/:userId", async (req, res) => {
         heightIn: user.heightIn,
         weight: user.weight,
         birthday: user.birthday,
+        workouts: user.workouts, // Include the workouts field
       });
     } else {
       res.status(404).json({ error: "User not found" });
@@ -114,7 +115,7 @@ app.post("/workouts", async (req, res) => {
       user.workouts = workouts;
 
       await user.save();
-      res.json("success");
+      res.json({ status: "success" }); // Update the response structure
     } else {
       res.status(404).json({ error: "User not found" });
     }
