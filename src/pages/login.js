@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/login.css'; 
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
 
 function Login() {
   const history = useNavigate();
@@ -13,13 +14,14 @@ function Login() {
     e.preventDefault();
   
     try {
-      const res = await axios.post("http://localhost:5000/login", {
+      const res = await axios.post(`${apiUrl}/login`, {
         email,
         password,
       });
   
       if (res.data.status === "exist" && res.data.userId) {
-        history("/home", { state: { id: res.data.userId } });
+        // Use navigate instead of history
+        history(`/home`, { state: { id: res.data.userId } });
       } else if (res.data.status === "notexist") {
         alert("User has not signed up");
       }

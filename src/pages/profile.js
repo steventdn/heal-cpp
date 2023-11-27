@@ -4,6 +4,8 @@ import axios from "axios";
 import "../styles/navbar.css";
 import "../globals.css"
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function Profile() {
   const location = useLocation();
   const userId = location.state ? location.state.id : null;
@@ -13,7 +15,7 @@ function Profile() {
     // Fetch user details based on userId
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/user/${userId}`);
+        const response = await axios.get(`${apiUrl}/user/${userId}`);
         setUserDetails(response.data);
       } catch (error) {
         console.error("Error fetching user data:", error);
