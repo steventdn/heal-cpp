@@ -10,7 +10,7 @@ function Profile() {
   const location = useLocation();
   const userId = location.state ? location.state.id : null;
   const [userDetails, setUserDetails] = useState(null);
-
+  
   useEffect(() => {
     // Fetch user details based on userId
     const fetchUserData = async () => {
@@ -34,6 +34,7 @@ function Profile() {
         <Link to="/home" state={{ id: userId }}>HOME</Link>
         <Link to="/goals" state={{ id: userId }}>GOALS</Link>
         <Link to="/profile" state={{ id: userId }}>PROFILE</Link>
+        <Link to="/getstarted">SIGNOUT</Link>
       </div>
       {userDetails && (
         <div>

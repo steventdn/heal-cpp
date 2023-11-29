@@ -10,7 +10,7 @@ function Home() {
     const location = useLocation();
     const userId = location.state ? location.state.id : null;
     const [userName, setUserName] = useState("");
-
+    
     useEffect(() => {
         // Fetch user details based on userId
         const fetchUserData = async () => {
@@ -34,6 +34,7 @@ function Home() {
                 <Link to="/home" state={{ id: userId }}>HOME</Link>
                 <Link to="/goals" state={{ id: userId }}>GOALS</Link>
                 <Link to="/profile" state={{ id: userId }}>PROFILE</Link>
+                <Link to="/getstarted">SIGNOUT</Link>
             </div>
             <h1>Hello {userName} and welcome to the Home page</h1>
         </div>

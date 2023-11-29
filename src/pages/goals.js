@@ -20,7 +20,7 @@ function Goals() {
   const [reps, setReps] = useState("");
   const [weight, setWeight] = useState("");
   const [workoutTitle, setWorkoutTitle] = useState("");
-  const [workouts, setWorkouts] = useState([]);
+  const [workouts, setWorkouts] = useState([]); 
 
   useEffect(() => {
     Modal.setAppElement('body'); // Set the app element for the modal
@@ -132,6 +132,7 @@ function Goals() {
         <Link to="/home" state={{ id: userId }}>HOME</Link>
         <Link to="/goals" state={{ id: userId }}>GOALS</Link>
         <Link to="/profile" state={{ id: userId }}>PROFILE</Link>
+        <Link to="/getstarted">SIGNOUT</Link>
       </div>
 
       <div className="big-text">Hello {userName}. This is where you can add your workouts!</div>

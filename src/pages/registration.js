@@ -15,6 +15,14 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
 
+  const handleSignOut = async () => {
+    try {
+      history.push("/");
+    } catch (error) {
+      console.error("Error during sign-out:", error);
+    }
+  };
+  
   async function submit(e) {
     e.preventDefault();
   
