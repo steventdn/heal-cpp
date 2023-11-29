@@ -26,7 +26,7 @@ function Goals() {
     Modal.setAppElement('body'); // Set the app element for the modal
     const fetchUserData = async () => {
       try {
-        const response = await axios.get(`${apiUrl}/user/${userId}`);
+        const response = await axios.get(`${apiUrl}user/${userId}`);
         const { firstName, lastName, workouts } = response.data;
         setUserName(`${firstName} ${lastName}`);
         setWorkouts(workouts); // Set the workouts state
@@ -65,7 +65,7 @@ function Goals() {
     };
 
     try {
-      const res = await axios.post(`${apiUrl}/workouts`, {
+      const res = await axios.post(`${apiUrl}workouts`, {
         userId,
         workouts: [workout, ...workouts],
       });

@@ -24,7 +24,7 @@ function Questionnaire() {
   
     try {
       // Send questionnaire data to the server
-      const res = await axios.post(`${apiUrl}/questionnaire`, {
+      const res = await axios.post(`${apiUrl}questionnaire`, {
         userId,
         selectedGender,
         heightFt,
