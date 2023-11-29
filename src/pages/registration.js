@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../styles/registration.css'; // Import the CSS file
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
 function Registration() {
   const history = useNavigate();
   const [firstName, setFirstName] = useState('');
@@ -15,19 +16,11 @@ function Registration() {
   const [password, setPassword] = useState('');
   const [confirmedPassword, setConfirmedPassword] = useState('');
 
-  const handleSignOut = async () => {
-    try {
-      history.push("/");
-    } catch (error) {
-      console.error("Error during sign-out:", error);
-    }
-  };
-  
   async function submit(e) {
     e.preventDefault();
   
     try {
-      const res = await axios.post("http://localhost:5000/registration", {
+      const res = await axios.post(`${apiUrl}registration`, {
         firstName,
         lastName,
         email,
