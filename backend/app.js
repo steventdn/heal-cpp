@@ -6,7 +6,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get("/", cors(), (req, res) => {});
+app.get("/", cors(), (req, res) => {
+  res.send("Hello, this is your Express server!");
+});
+
 
 //LOGIN LOGIC
 app.post("/login", async (req, res) => {
