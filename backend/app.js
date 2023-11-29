@@ -4,7 +4,16 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+// Specify the allowed origin of your React app
+const corsOptions = {
+  origin: 'https://main.d1ieej04guld9e.amplifyapp.com',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // Include credentials (cookies, HTTP authentication) in the CORS request
+  optionsSuccessStatus: 204, // Return a 204 status for preflight requests
+};
+
+// Use the cors middleware with the specified options
+app.use(cors(corsOptions));
 
 app.get("/", cors(), (req, res) => {
   res.send("Hello, this is your Express server!");
