@@ -18,16 +18,32 @@ function Login() {
         email,
         password,
       });
-  
+
+      console.log('Response from server:', res);
+
       if (res.data.status === "exist" && res.data.userId) {
         // Use navigate instead of history
         history(`/home`, { state: { id: res.data.userId } });
       } else if (res.data.status === "notexist") {
         alert("User has not signed up");
+      } else {
+        // Handle other scenarios if needed
+        alert("Unexpected response from server");
       }
-    } catch (e) {
-      alert("Wrong details or something went wrong");
-      console.log(e);
+    } catch (error) {
+      console.error('Error during login:', error);
+
+      // Check if the error is due to network issues or server error
+      if (error.response) {
+        // Server responded with a non-2xx status
+        alert(`Server error: ${error.response.data.error}`);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert('Network error. Please check your internet connection.');
+      } else {
+        // Something happened in setting up the request that triggered an error
+        alert('Unexpected error. Please try again.');
+      }
     }
   }
   
@@ -35,11 +51,11 @@ function Login() {
   return (
     <div className="default-background">
       <div className='welcome-text'>
-              <a href="/">HEAL</a>
+        <a href="/">HEAL</a>
       </div>
-    <div className="login-container">
-      <h2>Login</h2>
-      <form action = "POST">
+      <div className="login-container">
+        <h2>Login</h2>
+        <form action="POST">
           <input
             type="email"
             placeholder="Email Address"
@@ -57,13 +73,13 @@ function Login() {
           <button className="login-button" onClick={submit}>
             Login
           </button>
-      </form>
-      
-      <h5>Don't have an account?</h5>
-      <Link to="/registration">  {/* Use React Router's Link component */}
+        </form>
+        
+        <h5>Don't have an account?</h5>
+        <Link to="/registration">
           <h5>Register Now</h5>
         </Link>
-    </div>
+      </div>
     </div>
   );
 }
