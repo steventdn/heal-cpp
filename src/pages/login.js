@@ -41,7 +41,7 @@ function Login() {
         // The request was made but no response was received
         alert('Network error. Please check your internet connection.');
       } else {
-        // Something happened in setting up the request that triggered an error
+        // Something happened in setting up the request that triggered an error.
         alert('Unexpected error. Please try again.');
       }
     }
