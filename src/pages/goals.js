@@ -102,29 +102,31 @@ function Goals() {
     setVisible(false);
   };
 
-  // remove workout box after creating workout
-  const removeWorkout = async (index) => {
-    const updatedWorkouts = [...workouts];
-    updatedWorkouts.splice(index, 1);
+// remove workout box after creating workout
+const removeWorkout = async (index) => {
+  const updatedWorkouts = [...workouts];
+  const removedWorkout = updatedWorkouts.splice(index, 1)[0]; // Remove the workout at the specified index
 
-    try {
-      // Send updated workout data to the server
-      const res = await axios.post(`${apiUrl}/workouts`, {
-        userId,
-        workouts: updatedWorkouts,
-      });
+  try {
+    // Send updated workout data to the server
+    const res = await axios.post(`${apiUrl}workouts`, {
+      userId,
+      workouts: updatedWorkouts,
+    });
 
-      // Handle the server response accordingly
-      if (res.data === "success") {
-        setWorkouts(updatedWorkouts);
-      } else {
-        alert("Failed to remove workout. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error removing workout:", error);
-      alert("Something went wrong. Please try again.");
+    // Handle the server response accordingly
+    if (res.data.status === "success") {
+      // Update state using the previous state
+      setWorkouts(updatedWorkouts);
+      alert(`Workout "${removedWorkout.title}" deleted successfully.`);
+    } else {
+      alert("Failed to remove workout. Please try again.");
     }
-  };
+  } catch (error) {
+    console.error("Error removing workout:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
 
   return (
     <div className="Goals-Page">
