@@ -4,6 +4,8 @@ const cors = require("cors");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+//UNCOMMENT WHEN GOING BACK TO CLOUD
 // Specify the allowed origin of your React app
 /*const corsOptions = {
   origin: 'https://main.d1ieej04guld9e.amplifyapp.com',
@@ -14,7 +16,9 @@ app.use(express.urlencoded({ extended: true }));
 */
 // Use the cors middleware with the specified options
 //app.use(cors(corsOptions));
-app.use(cors());
+
+
+app.use(cors()); //Delete this when going back to cloud
 app.get("/", cors(), (req, res) => {
   res.send("Hello, this is your Express server!");
 });
