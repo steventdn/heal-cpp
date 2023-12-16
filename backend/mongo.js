@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const mongoURI = process.env.MONGODB_URI
 
-mongoose.connect("mongodb+srv://stn:cpphealpassword@heal-cpp-cluster.dnlkylp.mongodb.net/heal_database?retryWrites=true&w=majority")
+mongoose.connect(mongoURI)
   .then(() => {
     console.log("mongodb connected");
   })
